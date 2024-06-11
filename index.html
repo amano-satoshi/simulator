@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>都道府県面積シミュレーター</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <h3>都道府県面積シミュレーター</h3>
+    <div class="container">
+      <div class="select-content">
+        <form id="form" class="form">
+          <div class="form-group">
+            <select id="select-form" class="select-form">
+              <script type="text/javascript">
+                const selectList = ['都道府県を選ぶ', '北海道', '青森県', '千葉県', '岐阜県', '京都府', '広島県', '高知県', '鹿児島県']
+                for (i = 0; i < selectList.length; i++) {
+                  const newOption = document.createElement("option");
+                  newOption.value = i
+                  newOption.textContent = selectList[i]
+                  document.getElementById('select-form').appendChild(newOption);
+                }
+              </script>
+            </select>  
+          </div>
+          <div class="form-group">
+            <select id="shape-form" class="shape-form">
+              <script type="text/javascript">
+                const shapeList = ['図形を置く', '三角形', '長方形', '平行四辺形', '台形', 'ひし形']
+                for (i = 0; i < shapeList.length; i++) {
+                  const newOption = document.createElement("option");
+                  newOption.value = i
+                  newOption.textContent = shapeList[i]
+                  document.getElementById('shape-form').appendChild(newOption);
+                }
+              </script>
+            </select>
+          </div>
+          <div class="calc-btn">面積を求める</div>
+        </form>
+      </div>
+      <div class="calc-content">
+        <form id="form" class="form">
+          <div class="real-size">
+            <p>実際の面積</p>
+            <p>1111  ㎢</p>
+          </div>
+          <div class="calc-size">
+            <div>調べた面積</div>
+            <textarea id="text-form" class="text-form"></textarea>
+            <p class="calc-result">㎢</p>
+          </div>
+          <div class="score">
+            <p>スコア</p>
+            <p>11</p>
+          </div>
+          <div class="output-btn">出力する</div>
+          <div class="back-btn">図形の設置に戻る</div>
+        </form>
+      </div>
+      <div class="shape-set">
+        <ul id="images" class="images">
+          <script type="text/javascript">
+            const imageList = ['', './image/hokkaido.png', './image/aomori.png', './image/chiba.png', './image/gifu.png', './image/kyoto.png', './image/hiroshima.png', './image/kochi.png', './image/kagoshima.png']
+            for (i = 0; i < imageList.length; i++) {
+                  if (i != 0) {
+                    const newLi = document.createElement("li");
+                    const newImg = document.createElement("img");
+                    newLi.value = i
+                    newLi.className = "image"
+                    newLi.id = "image"
+                    document.getElementById('images').appendChild(newLi);
+                    newImg.src = imageList[i];
+                    document.getElementById(newLi.className).appendChild(newImg);
+                  }
+                }
+          </script>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
